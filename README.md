@@ -102,6 +102,56 @@ __28) How to see the line number in file?__
 __29) How to provide exit status for your sed command?__
 - ```sed ‘/India/ q 100’ file_name```
 
+---
+
+## SED Regular Expressions
+
+
+```^```  start of line  
+```$```   end of line  
+```.```  single character  
+```[]```  match character set  
+```[^]``` exclusive Set  
+```*```   zero or more occurance  
+
+
+Examples:  
+- ```sed -n '/^2/p' file_name```
+- ```sed -n '/ia$/p' file_name```
+
+__1) How to find a letter name which start with S and end with a?__
+- ```sed -n '/^S...a$/p' filename```
+
+__2) How to find names start with V?__
+- ```sed -n '/^V/p' filename```
+- ```sed -n '/[AC]/p' filename```
+
+__3) How to find names end with a?__
+- ```sed -n '/a$/p' names```
+
+__4) How to see names start with only A and C?__
+- ```sed -n '/[AC]/p' filename```
+
+__5) How to see names start with only A to D?__
+- ```sed -n '/^[A-D]/p' names```
+
+---
+
+## POSIX Classes
+
+Example: ```sed -n ‘/[[:alpha:]]/p’ file_name```
+
+```[:alnum:]```  
+```[:alpha:]```  
+```[:digit:]```  
+```[:blank:]```  
+```[:lower:]```  
+```[:upper:]```  
+```[:punct:]```  
+```[:space:]```  
+
+
+
 
 
 
