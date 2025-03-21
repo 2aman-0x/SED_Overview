@@ -3,10 +3,11 @@ suppose I have a file like 'Data' so below all to the questions all are based on
 ```cat data```  
 ```
 ID Name salary country
-1  kakashi  25000  Japan
-2  Hinata 45000  Canada
-3  Naruto 55000  Poland
-4  Itachi 35000  Japan
+1  kakashi 25000 Japan
+
+2  Hinata 45000 Canada
+3  Naruto 55000 Poland
+4  Itachi 35000 Japan
 ```
 
 __1) How to show only a given line or range of lines?__
@@ -42,6 +43,74 @@ __9) How to replace a word in a file and show except a given line or only in giv
 
 __10) How to replace a word and and edit in your file?__
 - ```sed -i '2! s/<string_to_change>/<new_string>/g' file_name```
+
+__11) How to change salary or country of a user (Naruto)?__
+- ```sed '/Naruto/ s/55000/35000/g' file_name```
+- ```sed '/Naruto/ s/Poland/US/g' file_name```
+
+__12) How to delete a line?__
+- ```sed '1d' file_name``` (to delete first line)
+- ```sed '1,2d' file_name``` (to delete a range)
+- ```sed '$d' file_name``` (to delete last line)
+
+__13) How to delete user from Poland country?__
+- ```sed ‘/Poland/d’ file_name```
+
+__14) How to delete empty line?__
+- ```sed '/^$/d' file_name```
+
+__15) How to Overwrite empty line?__
+- ```sed -i '/^$/d' file_name```
+
+__16) How to replace tab with space?__
+- ```sed 's/\t/ /g' file_name```
+
+__17) How to copy output of sed command in separate file?__
+- ```sed -n ‘/US/ w new_file_name’ file_name```
+
+__18) How to add new line after a given line no.?__
+- ```sed '3 a new_text' file_name```
+
+__19) How to add new line to given a specify user?__
+- ```sed '/Naruto/ a new_text' file_name```
+
+__20) How to edit existing line instead of adding new line?__
+- ```sed '4 c new_text' file_name``` (it will add text at line 4)
+
+__21) How to add new line before a given string, so it will add text before Paul?__
+- ```sed '/kakashi/ i new_text' file_name```
+
+__22) How to see the hidden characters?__
+- ```sed -n 'l' file_name```
+
+__23) How to wrap your file content with given no. of characters?__
+- ```sed -n 'l 10' file_name```
+
+__24) How to read content from a file and use in our command?__
+- ```sed '3 r externalfile' file_name```
+
+__26) How to stop execution of sed command as soon as first occurance found?__
+- ```sed ‘/US/ q’ file_name``` (stop execution at line US)
+- ```sed ‘5 q’ file_name```  (stop execution at line 5)
+
+__27) How to execute external command line date in your expression?``````````__
+- ```sed '2 e date' file_name``` (It will add date in second line)
+
+__28) How to see the line number in file?__
+- ```sed '=' file_name```
+
+__29) How to provide exit status for your sed command?__
+- ```sed ‘/India/ q 100’ file_name```
+
+
+
+
+
+
+
+
+
+
 
 
 
